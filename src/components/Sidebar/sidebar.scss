@@ -1,0 +1,122 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  min-height: calc(100vh - 30px);
+  padding: 30px 10px;
+  background-color: #fff;
+  color: #97a5b9;
+	border: 2px solid #f1f4f8;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &.opened {
+    width: 250px;
+    padding: 30px 15px;
+  }
+
+  &__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    img {
+      max-width: 40px;
+    }
+
+    span {
+      font-size: 0;
+      font-weight: 700;
+      color: #0000b5;
+      flex: 1 1 auto;
+			margin-left: 0;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+			transition: all 0.3s ease-in-out;
+
+      .opened & {
+        font-size: 20px;
+				margin-left: 10px;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    transform: translateX(55px);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .opened & {
+      position: relative;
+      background-color: #e2e8f0;
+      transform: translateX(35px);
+    }
+  }
+	
+	&__logo,
+  &__top,
+  &__bottom {
+    width: 100%;
+  }
+
+  &__top {
+    flex: 1 1 auto;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+		transition: all 0.1s ease-in-out;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    .opened & {
+      border-radius: 15px;
+    }
+
+    &:hover {
+      background-color: #f0f2ff;
+      color: #091b31;
+    }
+
+    &.active {
+      background-color: #f0f2ff;
+      color: #0000b5;
+    }
+
+    span {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+			transition: all 0.3s ease-in-out;
+
+      .opened & {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
